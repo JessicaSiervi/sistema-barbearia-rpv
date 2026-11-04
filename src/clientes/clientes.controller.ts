@@ -2,33 +2,31 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ClientesService } from './clientes.service.js';
 import { CreateClienteDto } from './dto/create-cliente.dto.js';
 import { UpdateClienteDto } from './dto/update-cliente.dto.js';
+import { EmpresaId } from '../common/empresa-id.decorator.js';
 
 @Controller('clientes')
 export class ClientesController {
-  constructor(private readonly clientesService: ClientesService) {}
+  constructor(private readonly clientesService: ClientesService) { }
 
   @Post()
-  create(@Body() createClienteDto: CreateClienteDto) {
-    return this.clientesService.create(createClienteDto);
+  create(@EmpresaId() empresaId: number, @Body() dto: CreateClienteDto) {
+    return this.clientesService.create(empresaId, dto)
   }
 
   @Get()
   findAll() {
-    return this.clientesService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.clientesService.findOne(+id);
+  findOne() {
+    ;
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateClienteDto: UpdateClienteDto) {
-    return this.clientesService.update(+id, updateClienteDto);
+  update() {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.clientesService.remove(+id);
+  remove() {
   }
 }
