@@ -22,7 +22,7 @@ export class ClientesService {
   }
 
   findAll() {
-    return `This action returns all clientes`;
+
   }
 
   findOne(id: number) {
