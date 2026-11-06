@@ -21,3 +21,28 @@ x-empresa-id: 2
     "nome": "Daniel",
     "telefone": "11999999990"
 }
+
+###
+
+GET http://localhost:3000/clientes
+Content-Type: application/json
+x-empresa-id: 3
+
+###
+GET http://localhost:3000/clientes/1
+Content-Type: application/json
+x-empresa-id: 1
+
+###
+PATCH http://localhost:3000/clientes/1
+Content-Type: application/json
+x-empresa-id: 1
+
+{
+    "nome": "Hugo Lagrimante"
+}
+
+###
+DELETE http://localhost:3000/clientes/1
+Content-Type: application/json
+x-empresa-id: 1
