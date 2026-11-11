@@ -5,5 +5,6 @@ import { ProfissionaisController } from './profissionais.controller.js';
 @Module({
   controllers: [ProfissionaisController],
   providers: [ProfissionaisService],
+  imports: [EmpresaModule]
 })
 export class ProfissionaisModule {}
